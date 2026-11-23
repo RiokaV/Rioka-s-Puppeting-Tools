@@ -1,0 +1,6 @@
+{
+  "name": "Rioka's Puppeting Tools",
+  "description": "Live2D-style 2D character rigging, mesh deformation, physics simulation, and After Effects solid-layer compositing studio with renewable PSD import.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    font-family: var(--font-sans);
+    background-color: #111318;
+    color: #eceff4;
+  }
+
+  /* Custom precision range sliders matching pro studio tools */
+  input[type="range"].studio-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  input[type="range"].studio-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: #2b303c;
+  }
+
+  input[type="range"].studio-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: #eceff4;
+    border: 1px solid #3b82f6;
+    margin-top: -4px;
+    transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 120ms ease;
+  }
+
+  input[type="range"].studio-slider::-webkit-slider-thumb:hover {
+    background: #3b82f6;
+    transform: scale(1.1);
+  }
+
+  input[type="range"].studio-slider:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Keyform slider variant: transparent native track so custom track & crisp green/hollow keyform dots are never occluded */
+  input[type="range"].studio-slider-keyform::-webkit-slider-runnable-track {
+    height: 4px;
+    background: transparent;
+  }
+
+  input[type="range"].studio-slider-keyform::-moz-range-track {
+    height: 4px;
+    background: transparent;
+  }
+
+  input[type="range"].studio-slider-keyform::-webkit-slider-thumb {
+    width: 10px;
+    height: 12px;
+    margin-top: -4px;
+    background: #c5c9d1;
+    border-color: #6b7280;
+  }
+
+  input[type="range"].studio-slider-has-keyform::-webkit-slider-thumb {
+    background: #f0f7ff;
+    border-color: #2d8ceb;
+  }
+
+  input[type="range"].studio-slider-on-keyform::-webkit-slider-thumb {
+    background: #ffffff;
+    border-color: #2d8ceb;
+    box-shadow: 0 0 0 2px rgba(45, 140, 235, 0.5);
+  }
+
+  input[type="range"].studio-slider-has-keyform::-webkit-slider-thumb:hover,
+  input[type="range"].studio-slider-on-keyform::-webkit-slider-thumb:hover {
+    background: #2d8ceb;
+  }
+
+  /* Subtle dark scrollbars */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #14171d;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2d3340;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3e4656;
+  }
+}
+
+.checkerboard-canvas {
+  background-color: #1c1c1c;
+  background-image:
+    linear-gradient(45deg, #282828 25%, transparent 25%),
+    linear-gradient(-45deg, #282828 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #282828 75%),
+    linear-gradient(-45deg, transparent 75%, #282828 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+/* Transparency pasteboard outside the 16:9 Composition Window inside the AE plugin */
+.ae-pasteboard-transparency {
+  background-color: #141414;
+  background-image:
+    linear-gradient(45deg, #1d1d1d 25%, transparent 25%),
+    linear-gradient(-45deg, #1d1d1d 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1d1d1d 75%),
+    linear-gradient(-45deg, transparent 75%, #1d1d1d 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
